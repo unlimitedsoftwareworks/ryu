@@ -30,6 +30,4 @@
 
 #define REG_SIZE 16
 
-/* Stack maximum size is 100Mb */
-#define MAX_STACK_SIZE 1024*1024*100
 
