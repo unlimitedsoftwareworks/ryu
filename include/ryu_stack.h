@@ -11,7 +11,7 @@
 #define MAX_STACK_SIZE 1024*1024*50
 
 typedef struct RyuStack {
-size_t currentSize;
+	size_t currentSize;
 	void* mem;
 };
 
