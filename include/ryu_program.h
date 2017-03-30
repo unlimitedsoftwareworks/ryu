@@ -5,16 +5,8 @@
 #ifndef RYU_PROGRAM_H
 #define RYU_PROGRAM_H
 
-typedef enum DataType {
-	DT_BYTE=0,
-	DT_WORD,
-	DT_DOUBLE_WORD,
-	DT_QUAD_WORD,
-	DT_ARRAY,
-};
-
 typedef struct DataDef {
-    DataType* datatype;
+	DataType* datatype;
 	void* value;
 	
 	union{
@@ -24,11 +16,13 @@ typedef struct DataDef {
 };
 
 typedef struct DataSegment{
-    
+	void* data;
+	size_t size;
 };
 
 typedef struct RyuProgram {
-    
+	DataSegment* data;
+	size_t* code;
 };
 
 #endif
