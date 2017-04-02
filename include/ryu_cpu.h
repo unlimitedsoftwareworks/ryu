@@ -14,10 +14,12 @@
 
 typedef struct RyuCPU {
 	size_t programCounter;
-	RyuProgram* program;
+	struct RyuProgram* program;
 	RyuStack* stack;
-};
+}RyuCPU;
 
-void cpu_run(RyuCPU* cpu, RyuProgram* program);
+RyuCPU* RyuCPU_new();
+void RyuCPU_delete(RyuCPU* cpu);
+void RyuCPU_run(RyuCPU* cpu, RyuProgram* program);
 
 #endif
