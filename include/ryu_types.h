@@ -18,10 +18,10 @@ typedef enum DataType {
 	DT_ARRAY,
 }DataType;
 
-typedef unsigned char Byte;
-typedef unsigned short int Word;
-typedef unsigned int DWord ;
-typedef unsigned long long int QWord;
-typedef struct {unsigned long long int l, h;} DQWord;
+typedef uint8_t Byte;
+typedef uint16_t Word;
+typedef uint32_t DWord ;
+typedef uint64_t QWord;
+typedef struct {uint64_t l, h;} DQWord;
 
 #endif
