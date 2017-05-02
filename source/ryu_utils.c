@@ -1,4 +1,7 @@
 #include <ryu_utils.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stddef.h>
 
 #define bin(name, t) void name(t n, uint8_t* dest) { \
   size_t size = sizeof(t) * 8;\
