@@ -27,7 +27,10 @@ typedef struct DataSegment{
 
 typedef struct RyuProgram {
 	DataSegment* data;
-	size_t* code;
+	uint64_t** code;
+	size_t lineCount;
 }RyuProgram;
+
+
 
 #endif

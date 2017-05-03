@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
+set(CMAKE_BUILD_TYPE Debug)
+
 project(ryu)
 
 set (PROJECT_INCLUDE_DIR
@@ -11,6 +13,7 @@ set (PROJECT_SRCS
 	${PROJECT_SOURCE_DIR}/source/main.c
 	${PROJECT_SOURCE_DIR}/source/ryu_cpu.c
 	${PROJECT_SOURCE_DIR}/source/ryu_stack.c
+	${PROJECT_SOURCE_DIR}/source/ryu_utils.c
 	
 	${PROJECT_SOURCE_DIR}/vendor/memory/memory.c
 )

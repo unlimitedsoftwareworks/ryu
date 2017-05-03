@@ -11,6 +11,7 @@
  * Ryu General Purpose Registers
  */
 
+/* Registers */
 #define R0   0
 #define R1   1
 #define R2   2
@@ -30,6 +31,7 @@
 
 #define REG_SIZE 16
 
+/* Instructions */
 #define PUSH_B   0
 #define PUSH_W   1
 #define PUSH_DW  2
@@ -78,6 +80,19 @@
 #define ADD_S_QW  73
 #define ADD_S_DQW 74
 
+#define SUB_U_B   60
+#define SUB_U_W   61
+#define SUB_U_DW  62
+#define SUB_U_QW  63
+#define SUB_U_DQW 64
 
+#define SUB_S_B   70
+#define SUB_S_W   71
+#define SUB_S_DW  72
+#define SUB_S_QW  73
+#define SUB_S_DQW 74
+
+#define HALT 80
+#define PRINT_REG 81
 
 #endif

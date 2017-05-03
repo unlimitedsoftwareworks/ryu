@@ -6,6 +6,9 @@
 #ifndef RYU_CPU_H
 #define RYU_CPU_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
 #include <stddef.h>
 
 #include <ryu_types.h>
@@ -13,13 +16,16 @@
 #include <ryu_program.h>
 
 typedef struct RyuCPU {
-	size_t programCounter;
+	uint8_t running;
+	// instruction pointer
+	uint64_t ip;
 	struct RyuProgram* program;
 	RyuStack* stack;
+	uint64_t regs[16];
 }RyuCPU;
 
 RyuCPU* RyuCPU_new();
-void RyuCPU_delete(RyuCPU* cpu);
-void RyuCPU_run(RyuCPU* cpu, RyuProgram* program);
+void RyuCPU_delete(struct RyuCPU* cpu);
+void RyuCPU_run(struct RyuCPU* cpu, struct RyuProgram* program);
 
 #endif

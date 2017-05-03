@@ -7,33 +7,37 @@
 #include <ryu_cpu.h>
 #include <ryu_program.h>
 #include <ryu_stack.h>
+#include <vm_set.h>
 
 int main(int argc, char* argv[]) {
-  printf(RYU_CMD_PROMPT, RYU_VERSION);
-  RyuCPU* cpu = RyuCPU_new();
-  
-  Byte* c0 = dmt_calloc(1, sizeof(Byte));
-  *c0 = 'A';
-  Byte* c1 = dmt_calloc(1, sizeof(Byte));
-  *c1 = 'B';
-  
-  DQWord w = {.h = -2, .l = -1};
-  
-  pushB(cpu->stack, *c0);
-  pushW(cpu->stack, 32);
-  pushW(cpu->stack, 64);
-  pushB(cpu->stack, *c1);
-  pushDQW(cpu->stack, w);
-  
-  
-  DQWord *dqw = popDQW(cpu->stack);
-  Byte* d0 = popB(cpu->stack);
-  Word* d1 = popW(cpu->stack);
-  Word* d2 = popW(cpu->stack);
-  Byte* d3 = popB(cpu->stack);
-  
-  printf("B: %zu, W: %zu, DW: %zu, QW: %zu, DQW: %zu\n", sizeof(Byte), sizeof(Word), sizeof(DWord), sizeof(QWord), sizeof(DQWord));
-  printf("(%lu, %lu), %c, %d, %d, %c\n", dqw->h, dqw->l, *d0, *d1, *d2, *d3);
-  
-  return 0;
+	printf(RYU_CMD_PROMPT, RYU_VERSION);
+	
+	RyuCPU* cpu = RyuCPU_new();
+	
+	RyuProgram program;
+	program.data = NULL;
+	program.code = dmt_calloc(4, sizeof(uint64_t*));
+	
+	program.code[0] = dmt_calloc(3, sizeof(uint64_t));
+	program.code[0][0] = PUSH_B;
+	program.code[0][1] = 10;
+	
+	program.code[1] = dmt_calloc(3, sizeof(uint64_t));
+	program.code[1][0] = POP_B;
+	program.code[1][1] = R15;
+
+	program.code[2] = dmt_calloc(3, sizeof(uint64_t));
+	program.code[2][0] = PRINT_REG;
+	program.code[2][1] = R15;
+	
+	program.code[3] = dmt_calloc(3, sizeof(uint64_t));
+	program.code[3][0] = HALT;
+	
+	
+	
+	program.lineCount = 4;
+	
+	RyuCPU_run(cpu, &program);
+	
+	return 0;
 }
