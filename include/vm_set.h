@@ -5,8 +5,6 @@
 #ifndef VM_SET_H
 #define VM_SET_H
 
-
-
 /*
  * Ryu General Purpose Registers
  */
@@ -32,67 +30,70 @@
 #define REG_SIZE 16
 
 /* Instructions */
-#define PUSH_B   0
-#define PUSH_W   1
-#define PUSH_DW  2
-#define PUSH_QW  3
-#define PUSH_DQW 4
+typedef enum VMInst {
+	PUSH_B = 0,
+	PUSH_W,
+	PUSH_DW,
+	PUSH_QW,
+	PUSH_DQW,
 
-#define POP_B   10
-#define POP_W   11
-#define POP_DW  12
-#define POP_QW  13
-#define POP_DQW 14
+	POP_B,
+	POP_W,
+	POP_DW,
+	POP_QW,
+	POP_DQW,
 
-#define MOV_REG_B   20
-#define MOV_REG_W   21
-#define MOV_REG_DW  22
-#define MOV_REG_QW  23
-#define MOV_REG_DQW 24
+	MOV_REG_B,
+	MOV_REG_W,
+	MOV_REG_DW,
+	MOV_REG_QW,
+	MOV_REG_DQW,
 
-#define MOV_MEM_B   30
-#define MOV_MEM_W   31
-#define MOV_MEM_DW  32
-#define MOV_MEM_QW  33
-#define MOV_MEM_DQW 34
+	MOV_MEM_B,
+	MOV_MEM_W,
+	MOV_MEM_DW,
+	MOV_MEM_QW,
+	MOV_MEM_DQW,
 
-#define MOV_MEM_REG_B   40
-#define MOV_MEM_REG_W   41
-#define MOV_MEM_REG_DW  42
-#define MOV_MEM_REG_QW  43
-#define MOV_MEM_REG_DQW 44
+	MOV_MEM_REG_B,
+	MOV_MEM_REG_W,
+	MOV_MEM_REG_DW,
+	MOV_MEM_REG_QW,
+	MOV_MEM_REG_DQW,
 
-#define MOV_REG_MEM_B   50
-#define MOV_REG_MEM_W   51
-#define MOV_REG_MEM_DW  52
-#define MOV_REG_MEM_QW  53
-#define MOV_REG_MEM_DQW 54
+	MOV_REG_MEM_B,
+	MOV_REG_MEM_W,
+	MOV_REG_MEM_DW,
+	MOV_REG_MEM_QW,
+	MOV_REG_MEM_DQW,
 
-#define ADD_U_B   60
-#define ADD_U_W   61
-#define ADD_U_DW  62
-#define ADD_U_QW  63
-#define ADD_U_DQW 64
+	ADD_U_B,
+	ADD_U_W,
+	ADD_U_DW,
+	ADD_U_QW,
+	ADD_U_DQW,
 
-#define ADD_S_B   70
-#define ADD_S_W   71
-#define ADD_S_DW  72
-#define ADD_S_QW  73
-#define ADD_S_DQW 74
+	ADD_S_B,
+	ADD_S_W,
+	ADD_S_DW,
+	ADD_S_QW,
+	ADD_S_DQW,
 
-#define SUB_U_B   60
-#define SUB_U_W   61
-#define SUB_U_DW  62
-#define SUB_U_QW  63
-#define SUB_U_DQW 64
+	SUB_U_B,
+	SUB_U_W,
+	SUB_U_DW,
+	SUB_U_QW,
+	SUB_U_DQW,
 
-#define SUB_S_B   70
-#define SUB_S_W   71
-#define SUB_S_DW  72
-#define SUB_S_QW  73
-#define SUB_S_DQW 74
+	SUB_S_B,
+	SUB_S_W,
+	SUB_S_DW,
+	SUB_S_QW,
+	SUB_S_DQW,
 
-#define HALT 80
-#define PRINT_REG 81
+	HALT,
+	PRINT_REG,
+
+}VMInst;
 
 #endif
