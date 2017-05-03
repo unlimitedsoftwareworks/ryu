@@ -51,7 +51,10 @@ void RyuCPU_run(struct RyuCPU* cpu, struct RyuProgram* program) {
 				uint64_t v = cpu->regs[reg];
 				uint8_t tmp[10]= {'\0'};
 				uint64_Bin(v, tmp);
-				printf("R# %s", tmp);
+				printf("R%d: %s", reg, tmp);
+			}
+			case PRINT_CHAR: {
+				printf("%c", program->code[cpu->ip][1]);
 			}
 		}
 	}

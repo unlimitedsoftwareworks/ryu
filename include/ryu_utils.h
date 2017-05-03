@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
+#include <ryu_program.h>
+
 /**
  * Converts a uint8_t to Binary String. Result stored in dest parameter
  * @param n uint8_t number
@@ -34,5 +36,13 @@ void uint32_Bin(uint32_t n, uint8_t* dest);
  */
 void uint64_Bin(uint64_t n, uint8_t* dest);
 
+/**
+ * Appends an instruction to a program's code.
+ * @param program Program structure
+ * @param i instruction
+ * @param a1 Argument 1
+ * @param a2 Argument 2
+ */
+void addInstruction(struct RyuProgram *program, uint64_t i, uint64_t a1, uint64_t a2);
 
 #endif

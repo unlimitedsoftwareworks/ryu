@@ -9,6 +9,7 @@
 #include <stdlib.h>
 
 #include <ryu_types.h>
+#include <vm_set.h>
 
 typedef struct DataDef {
 	DataType* datatype;
@@ -27,7 +28,7 @@ typedef struct DataSegment{
 
 typedef struct RyuProgram {
 	DataSegment* data;
-	uint64_t** code;
+	uint64_t ** code;
 	size_t lineCount;
 }RyuProgram;
 

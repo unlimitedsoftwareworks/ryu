@@ -93,6 +93,7 @@ typedef enum VMInst {
 
 	HALT,
 	PRINT_REG,
+	PRINT_CHAR,
 
 }VMInst;
 
