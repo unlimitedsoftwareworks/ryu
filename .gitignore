@@ -34,3 +34,4 @@
 
 build/*
 *.kdev4
+.vs/*

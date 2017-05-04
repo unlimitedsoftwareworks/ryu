@@ -14,6 +14,7 @@ RyuStack* RyuStack_new() {
 	stack->currentSize = INIT_STACK_SIZE;
 	stack->stackPointer = 0;
 	stack->mem = dmt_calloc(INIT_STACK_SIZE, sizeof(unsigned char));
+	return stack;
 }
 
 void RyuStack_delete(RyuStack* stack){}
