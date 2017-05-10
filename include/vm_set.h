@@ -5,6 +5,11 @@
 #ifndef VM_SET_H
 #define VM_SET_H
 
+#include <ryu_cpu.h>
+#include <ryu_program.h>
+#include <ryu_stack.h>
+
+
 /*
  * Ryu General Purpose Registers
  */
@@ -28,6 +33,13 @@
 #define R15 15
 
 #define REG_SIZE 16
+
+typedef void (*InstructionHandler)(struct RyuCPU*, struct RyuProgram*);
+#define void HANDLE(instr) handle##instr(struct RyuCPU*, struct RyuProgram*)
+
+HANDLE(PUSH_B) {
+	pushB(cpu->stack, program->code[cpu->ip][1]);
+}
 
 /* Instructions */
 typedef enum VMInst {
