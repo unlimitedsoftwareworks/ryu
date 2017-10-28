@@ -35,11 +35,7 @@
 #define REG_SIZE 16
 
 typedef void (*InstructionHandler)(struct RyuCPU*, struct RyuProgram*);
-#define void HANDLE(instr) handle##instr(struct RyuCPU*, struct RyuProgram*)
-
-HANDLE(PUSH_B) {
-	pushB(cpu->stack, program->code[cpu->ip][1]);
-}
+#define HANDLE(instr) void handle##instr(struct RyuCPU* cpu, struct RyuProgram* program)
 
 /* Instructions */
 typedef enum VMInst {

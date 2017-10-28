@@ -12,7 +12,7 @@
 #include <vm_set.h>
 
 typedef struct DataDef {
-	DataType* datatype;
+	enum DataType* datatype;
 	void* value;
 	
 	union{
@@ -27,7 +27,7 @@ typedef struct DataSegment{
 }DataSegment;
 
 typedef struct RyuProgram {
-	DataSegment* data;
+	struct DataSegment* data;
 	uint64_t ** code;
 	size_t lineCount;
 }RyuProgram;

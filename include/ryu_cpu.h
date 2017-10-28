@@ -20,11 +20,11 @@ typedef struct RyuCPU {
 	// instruction pointer
 	uint64_t ip;
 	struct RyuProgram* program;
-	RyuStack* stack;
+	struct RyuStack* stack;
 	uint64_t regs[16];
 }RyuCPU;
 
-RyuCPU* RyuCPU_new();
+struct RyuCPU* RyuCPU_new();
 void RyuCPU_delete(struct RyuCPU* cpu);
 void RyuCPU_run(struct RyuCPU* cpu, struct RyuProgram* program);
 

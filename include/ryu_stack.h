@@ -17,19 +17,19 @@ typedef struct RyuStack {
 	Byte* mem;
 }RyuStack;
 
-RyuStack* RyuStack_new();
-void RyuStack_delete(RyuStack*);
+struct RyuStack* RyuStack_new();
+void RyuStack_delete(struct RyuStack*);
 
-void pushB(RyuStack* stack, Byte data);
-void pushW(RyuStack* stack, Word data);
-void pushDW(RyuStack* stack, DWord data);
-void pushQW(RyuStack* stack, QWord data);
-void pushDQW(RyuStack* stack, DQWord data);
+void pushB(struct RyuStack* stack, Byte data);
+void pushW(struct RyuStack* stack, Word data);
+void pushDW(struct RyuStack* stack, DWord data);
+void pushQW(struct RyuStack* stack, QWord data);
+//void pushDQW(struct RyuStack* stack, DQWord data);
 
-Byte*   popB(RyuStack* stack);
-Word*   popW(RyuStack* stack);
-DWord*  popDW(RyuStack* stack);
-QWord*  popQW(RyuStack* stack);
-DQWord* popDQW(RyuStack* stack);
+Byte*   popB(struct RyuStack* stack);
+Word*   popW(struct RyuStack* stack);
+DWord*  popDW(struct RyuStack* stack);
+QWord*  popQW(struct RyuStack* stack);
+//DQWord* popDQW(struct RyuStack* stack);
 
 #endif

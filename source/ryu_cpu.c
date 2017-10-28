@@ -11,7 +11,7 @@
 #include <vm_set.h>
 #include <ryu_utils.h>
 
-RyuCPU*  RyuCPU_new(){
+RyuCPU* RyuCPU_new(){
 	RyuCPU* cpu = NULL;
 	cpu = (RyuCPU*)dmt_calloc(1, sizeof(RyuCPU));
 	cpu->ip = 0;
@@ -24,9 +24,9 @@ RyuCPU*  RyuCPU_new(){
 	return cpu;
 }
 
-void RyuCPU_delete(struct RyuCPU* cpu){}
+void RyuCPU_delete(RyuCPU* cpu){}
 
-void RyuCPU_run(struct RyuCPU* cpu, struct RyuProgram* program) {
+void RyuCPU_run(RyuCPU* cpu, RyuProgram* program) {
 	printf("Starting CPU\n");
 	cpu->running = 1;
 	
